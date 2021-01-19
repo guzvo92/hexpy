@@ -1,14 +1,14 @@
-
 #Volumento app.py
 
 from flask import Flask, render_template
-from services.serialservice import *
+#from services.serialservice import *
 from services.dbservice import *
+from services.stringservice import *
+
+constructorstring = 0
+
 dbg = Maindb()
 
-
-dbg.updateval("c5","1")
-dbg.updateval("c1","1")
 
 app = Flask(__name__)
 
@@ -16,7 +16,6 @@ app = Flask(__name__)
 @app.route('/home')
 def home():
     return "<h1> Esta es la pagina home </h1>"
-
 
 @app.route('/')
 def index():
@@ -31,6 +30,9 @@ def c1on():
     dbg = Maindb()
     dbg.updateval("c1","1")
     getdb = dbg.readall()
+
+    url = getdb[0][7]
+    print("[Hex] "+ str(url))
     return render_template('index.html',
                             getdb=getdb,
                             )
@@ -40,6 +42,9 @@ def c1off():
     dbg = Maindb()
     dbg.updateval("c1","0")
     getdb = dbg.readall()
+
+    url = getdb[0][8]
+    print("[Hex] "+ str(url))
     return render_template('index.html',
                             getdb=getdb,
                             )
@@ -51,4 +56,5 @@ dbg.desco()
 #//si corro archivo llamado "main" -> palabra reservada
 #//que se ejecute en modo debug
 if __name__ == '__main__':
-    app.run(debug=True)
+    #app.run(debug=True)
+    app.run(host ='192.168.20.9')

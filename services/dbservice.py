@@ -20,14 +20,16 @@ class Maindb:
         v6 ="urlon varchar(255),"
         v7 ="urloff varchar(255),"
         v8 ="valon varchar(255),"
-        v9 ="valoff varchar(255)"
-        v10 = " )"
-        value = v1+v2+v3+v4+v5+v6+v7+v8+v9+v10
+        v9 ="valoff varchar(255),"
+        v10 ="stringon varchar(255),"
+        v11 ="stringoff varchar(255)"
+        v12 = " )"
+        value = v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11+v12
         #print (value)
         self.cursor.execute(value)
         self.conexion.commit()
 
-    def insertnewdata(self,tabla,circuito,status):
+    def insertnewdata(self,tabla,circuito,status,stringon,stringoff):
         v1 = "INSERT INTO "
         v2 = tabla
         v3 = " VALUES (null, '"
@@ -42,21 +44,59 @@ class Maindb:
         v12 = str(circuito)+" On"
         v13 = "','"
         v14= str(circuito)+" Off"
-        v15 = "')"
-        value = v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11+v12+v13+v14+v15
+        v15 = "','"
+        v16= str(stringon)
+        v17 = "','"
+        v18= str(stringoff)
+        v19 = "')"
+        value = v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11+v12+v13+v14+v15+v16+v17+v18+v19
+        print (value)
+        self.cursor.execute(value)
+        self.conexion.commit()
+
+    #editar a parametros opcionales PENDIENTE
+    def updatevalfull(self,circuito,valor,stringon,stringoff):
+        a1 = "UPDATE circuitos "
+        a2 = "SET estado = "
+        a3 = valor
+        a4 = ","
+        a5 = "stringon = '"
+        a6 = stringon
+        a7 = "'"
+        a8 = ","
+        a9 = "stringoff = '"
+        a10 = stringoff
+        a11 = "' WHERE titulo= '"
+        a12 = str(circuito) + "';"
+        value = a1+a2+a3+a4+a5+a6+a7+a8+a9+a10+a11+a12
+        value2 = a1+a2+a3+a11+a12
         print (value)
         self.cursor.execute(value)
         self.conexion.commit()
 
     def updateval(self,circuito,valor):
         a1 = "UPDATE circuitos "
-        b1 = "SET estado = "
-        b2 = valor
-        b3 = " "
-        c1 = "WHERE titulo= '"
-        c2 = circuito +"';"
-        value = a1+b1+b2+b3+c1+c2
-        #print (value)
+        a2 = "SET estado = "
+        a3 = valor
+        a4 = " WHERE titulo= '"
+        a5 = str(circuito) + "';"
+        value = a1+a2+a3+a4+a5
+        print (value)
+        self.cursor.execute(value)
+        self.conexion.commit()
+
+    def updatestrings(self,circuito,stringon,stringoff):
+        a1 = "UPDATE circuitos "
+        a2 = "SET stringon = '"
+        a3 = stringon
+        a4 = "'"
+        a5 = ","
+        a6 = "stringoff = '"
+        a7 = stringoff
+        a8 = "' WHERE titulo= '"
+        a9 = str(circuito) + "';"
+        value = a1+a2+a3+a4+a5+a6+a7+a8+a9
+        print (value)
         self.cursor.execute(value)
         self.conexion.commit()
 
@@ -76,22 +116,23 @@ class Maindb:
         return self.circuitos
 
 
-'''
 programadb = Maindb()
-programadb.creartabla("circuitos")
+#programadb.creartabla("circuitos")
 
-programadb.insertnewdata('circuitos','c1','0')
-programadb.insertnewdata('circuitos','c2','0')
-programadb.insertnewdata('circuitos','c3','0')
-programadb.insertnewdata('circuitos','c4','0')
-programadb.insertnewdata('circuitos','c5','0')
-programadb.insertnewdata('circuitos','c6','0')
-programadb.insertnewdata('circuitos','c7','0')
-programadb.insertnewdata('circuitos','c8','0')
-programadb.insertnewdata('circuitos','c9','0')
-programadb.insertnewdata('circuitos','c10','0')
+#programadb.insertnewdata('circuitos','c1','0','nada','nada')
+
+'''
+programadb.insertnewdata('circuitos','c2','0','nada','nada')
+programadb.insertnewdata('circuitos','c3','0','nada','nada')
+programadb.insertnewdata('circuitos','c4','0','nada','nada')
+programadb.insertnewdata('circuitos','c5','0','nada','nada')
+programadb.insertnewdata('circuitos','c6','0','nada','nada')
+programadb.insertnewdata('circuitos','c7','0','nada','nada')
+programadb.insertnewdata('circuitos','c8','0','nada','nada')
+programadb.insertnewdata('circuitos','c9','0','nada','nada')
+programadb.insertnewdata('circuitos','c10','0','nada','nada')
 
 #programadb.deleteval(1)
-#programadb.updateval("c5","1")
-programadb.desco()
 '''
+#programadb.updateval("c5","0")
+programadb.desco()
