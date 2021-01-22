@@ -11,6 +11,15 @@ class Maindb:
     def desco(self):
         self.conexion.close()
 
+    def borrartabla(self,tabla):
+        v1="DROP TABLE "
+        v2= tabla
+        v3= " "
+        value = v1+v2+v3
+        print (value)
+        self.cursor.execute(value)
+        self.conexion.commit()
+
     def creartabla(self,tabla):
         v1="CREATE TABLE IF NOT EXISTS "
         v2= tabla
@@ -25,7 +34,7 @@ class Maindb:
         v11 ="stringoff varchar(255)"
         v12 = " )"
         value = v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11+v12
-        #print (value)
+        print (value)
         self.cursor.execute(value)
         self.conexion.commit()
 
@@ -115,24 +124,21 @@ class Maindb:
         self.conexion.commit()
         return self.circuitos
 
-
-programadb = Maindb()
-#programadb.creartabla("circuitos")
-
-#programadb.insertnewdata('circuitos','c1','0','nada','nada')
+dbg = Maindb()
 
 '''
-programadb.insertnewdata('circuitos','c2','0','nada','nada')
-programadb.insertnewdata('circuitos','c3','0','nada','nada')
-programadb.insertnewdata('circuitos','c4','0','nada','nada')
-programadb.insertnewdata('circuitos','c5','0','nada','nada')
-programadb.insertnewdata('circuitos','c6','0','nada','nada')
-programadb.insertnewdata('circuitos','c7','0','nada','nada')
-programadb.insertnewdata('circuitos','c8','0','nada','nada')
-programadb.insertnewdata('circuitos','c9','0','nada','nada')
-programadb.insertnewdata('circuitos','c10','0','nada','nada')
-
-#programadb.deleteval(1)
+dbg.borrartabla('circuitos')
+dbg.creartabla('circuitos')
+dbg.insertnewdata('circuitos','c1','0','stringonG','stringoffG')
+dbg.insertnewdata('circuitos','c2','0','stringonG','stringoffG')
+dbg.insertnewdata('circuitos','c3','0','stringonG','stringoffG')
+dbg.insertnewdata('circuitos','c4','0','stringonG','stringoffG')
+dbg.insertnewdata('circuitos','c5','0','stringonG','stringoffG')
+dbg.insertnewdata('circuitos','c6','0','stringonG','stringoffG')
+dbg.insertnewdata('circuitos','c7','0','stringonG','stringoffG')
+dbg.insertnewdata('circuitos','c8','0','stringonG','stringoffG')
+dbg.insertnewdata('circuitos','c9','0','stringonG','stringoffG')
+dbg.insertnewdata('circuitos','c10','0','stringonG','stringoffG')
 '''
-#programadb.updateval("c5","0")
-programadb.desco()
+
+dbg.desco()
