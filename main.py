@@ -23,6 +23,15 @@ class Maindb:
     def desco(self):
         self.conexion.close()
 
+    def borrartabla(self,tabla):
+        v1="DROP TABLE "
+        v2= tabla
+        v3= " "
+        value = v1+v2+v3
+        print (value)
+        self.cursor.execute(value)
+        self.conexion.commit()
+
     def creartabla(self,tabla):
         v1="CREATE TABLE IF NOT EXISTS "
         v2= tabla
@@ -37,7 +46,7 @@ class Maindb:
         v11 ="stringoff varchar(255)"
         v12 = " )"
         value = v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11+v12
-        #print (value)
+        print (value)
         self.cursor.execute(value)
         self.conexion.commit()
 
@@ -132,6 +141,7 @@ class Maindb:
 
 dbg = Maindb()
 
+dbg.borrartabla('circuitos')
 dbg.creartabla('circuitos')
 dbg.insertnewdata('circuitos','c1','0','stringonG','stringoffG')
 dbg.insertnewdata('circuitos','c2','0','stringonG','stringoffG')
