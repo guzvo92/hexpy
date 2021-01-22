@@ -1,15 +1,17 @@
 #Volumento app.py
 
+constructorstring = 0 #Peso=0
+constructortable = 1 #Peso=0
+
 from flask import Flask, render_template
 #from services.serialservice import *
 from services.dbservice import *
 from services.stringservice import *
 
-constructorstring = 0
 dbg = Maindb()
 app = Flask(__name__)
 
-from .routes import *
+from .routes import * #Peso=2
 
 
 dbg.desco()
