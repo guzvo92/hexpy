@@ -1,3 +1,6 @@
+from main import app
+
+
 #//rutas tienen que estar vinculadas a un metodo
 @app.route('/home')
 def home():

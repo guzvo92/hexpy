@@ -11,7 +11,7 @@ from services.stringservice import *
 dbg = Maindb()
 app = Flask(__name__)
 
-from .routes import * #Peso=2
+from routes import * #Peso=2
 
 
 dbg.desco()
