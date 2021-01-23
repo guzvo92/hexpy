@@ -5,13 +5,14 @@ constructortable = 1 #Peso=0
 
 from flask import Flask, render_template
 #from services.serialservice import *
-from services.dbservice import *
-from services.stringservice import *
 
-dbg = Maindb()
+from services.stringservice import *
+from services.dbservice import * #Peso=1
+
+dbg = Maindb() #Peso=2
 app = Flask(__name__)
 
-from routes import * #Peso=2
+from routes import * #Peso=3
 
 
 dbg.desco()

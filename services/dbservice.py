@@ -124,9 +124,10 @@ class Maindb:
         self.conexion.commit()
         return self.circuitos
 
-dbg = Maindb()
 
 from main import constructortable
+
+dbg = Maindb() #Peso=2
 
 if constructortable == 1:
     dbg.borrartabla('circuitos')

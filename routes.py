@@ -1,4 +1,4 @@
-from main import app
+from main import app,dbg
 
 
 #//rutas tienen que estar vinculadas a un metodo
