@@ -1,21 +1,13 @@
-#Volumento app.py
+#Volumento main.py
 
 constructorstring = 0 #Peso=0
 constructortable = 1 #Peso=0
 
-from flask import Flask, render_template
-#from services.serialservice import *
+from flask import Flask
 
-from services.stringservice import *
-from services.dbservice import * #Peso=1
-
-dbg = Maindb() #Peso=2
 app = Flask(__name__)
 
 from routes import * #Peso=3
-
-
-dbg.desco()
 
 
 import socket

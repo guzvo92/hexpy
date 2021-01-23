@@ -1,4 +1,10 @@
-from main import app,dbg
+from main import app
+from services.dbservice import * #Peso=1
+from services.stringservice import *
+#from services.serialservice import *
+
+
+dbg = Maindb() #Peso=2
 
 
 #//rutas tienen que estar vinculadas a un metodo
@@ -37,3 +43,8 @@ def c1off():
     return render_template('index.html',
                             getdb=getdb,
                             )
+
+
+
+
+dbg.desco()
