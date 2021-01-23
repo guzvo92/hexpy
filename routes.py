@@ -1,3 +1,4 @@
+from flask import render_template
 from main import app
 from services.dbservice import * #Peso=1
 from services.stringservice import *
