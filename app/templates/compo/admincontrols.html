@@ -1,0 +1,42 @@
+
+<style>
+  .boxge1_adm{display:inline-block;}
+  .item{display:inline-block}
+  .boxg_adm{ width:600px;}
+  .inp_adm{width:100px;}
+  .space_adm{width:10px;}
+</style>
+
+{% for x in getdb %}
+
+<div class="boxg_adm">
+    <div class="boxge1_adm">
+        <div class="item">{{[loop.index]}}</div>
+
+        <div class="item space_adm"></div>
+
+        <div class="item">String ON</div>
+        <form  action="{{ url_for('changestringonc1')}}" 
+          method="POST" class="item"> 
+          <input class="inp_adm"type="text" 
+          value="{{getdb[loop.index-1][7]}}">
+          <input type="submit">
+        </form>
+
+        <div class="item space_adm"></div>
+
+        <div class="item">String OFF</div>
+        <form action="{{ url_for('changestringoffc1')}}" 
+           method="POST" class="item"> 
+          <input class="inp_adm"type="text" 
+          value="{{getdb[loop.index-1][8]}}">
+          <input type="submit">
+        </form>
+        
+    </div>
+
+</div><!--- boxg_adm --->
+
+<div class="e20"></div>
+
+{% endfor%}

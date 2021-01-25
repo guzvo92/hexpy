@@ -127,9 +127,10 @@ class Maindb:
 
 from main import constructortable
 
-dbg = Maindb() #Peso=2
-
 if constructortable == 1:
+
+    dbg = Maindb() #Peso=2
+
     dbg.borrartabla('circuitos')
     dbg.creartabla('circuitos')
     dbg.insertnewdata('circuitos','c1','0','stringonG','stringoffG')
@@ -143,4 +144,5 @@ if constructortable == 1:
     dbg.insertnewdata('circuitos','c9','0','stringonG','stringoffG')
     dbg.insertnewdata('circuitos','c10','0','stringonG','stringoffG')
 
-dbg.desco()
+    dbg.desco()
+

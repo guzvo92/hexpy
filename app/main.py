@@ -5,11 +5,12 @@ constructortable = 1 #Peso=0
 
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask(__name__) #peso1
 
-from routes import * #Peso=3
+from routes import * #peso2
 
 
+#Code ISOLATED
 import socket
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
