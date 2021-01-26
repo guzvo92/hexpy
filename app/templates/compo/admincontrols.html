@@ -16,22 +16,25 @@
         <div class="item space_adm"></div>
 
         <div class="item">String ON</div>
-        <form  action="{{ url_for('changestringonc1')}}" 
+        <form  action="{{ url_for('changestringsC1')}}" 
           method="POST" class="item"> 
-          <input class="inp_adm"type="text" 
+          <input name="stringon" class="inp_adm"type="text" 
           value="{{getdb[loop.index-1][7]}}">
-          <input type="submit">
+
+          <div class="item space_adm"></div>
+
+          <div class="item">String OFF</div>
+
+          <input name="stringoff" class="inp_adm"type="text" 
+          value="{{getdb[loop.index-1][8]}}">    
+
+          <div class="item space_adm"></div>   
+
+          <button type:="submit"> Save </button>
         </form>
 
-        <div class="item space_adm"></div>
+        
 
-        <div class="item">String OFF</div>
-        <form action="{{ url_for('changestringoffc1')}}" 
-           method="POST" class="item"> 
-          <input class="inp_adm"type="text" 
-          value="{{getdb[loop.index-1][8]}}">
-          <input type="submit">
-        </form>
         
     </div>
 

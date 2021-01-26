@@ -1,13 +1,18 @@
 #Volumento main.py
 
-constructorstring = 0 #Peso=0
-constructortable = 1 #Peso=0
+constructorstring = 0 #[peso0]
+constructordb = 1 #[peso0]
+production = 0 #[peso0]
 
 from flask import Flask
 
 app = Flask(__name__) #peso1
 
-from routes import * #peso2
+from routes import * #[peso2] Archivo de rutas Maestro
+from constructors.constructor_db import * #[peso2] 
+from constructors.constructor_strings import * #[peso2] 
+#from services.serialservice import * #[peso2] Archivo init serials
+#from constructors.makerservice import * #[peso2] Archivo init makers
 
 
 #Code ISOLATED
@@ -28,6 +33,9 @@ mip = get_ip()
 #tiene que ir al final de las rutas NOTA!
 #//si corro archivo llamado "main" -> palabra reservada
 #//que se ejecute en modo debug
+
 if __name__ == '__main__':
-    #app.run(debug=True)
-    app.run(debug=True,host =str(mip),port=2500)
+    if production == 1:
+        app.run(debug=False,host =str(mip),port=2500)
+    else:
+        app.run(debug=True,port=2500)
