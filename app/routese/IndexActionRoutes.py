@@ -1,8 +1,7 @@
 from flask import render_template,redirect,url_for,request
 from services.dbservice import * #Peso=1
-
-
 from main import app
+
 dbg = Maindb() #Peso=2
    
 
@@ -14,9 +13,7 @@ def c1on():
 
     string = getdb[0][7] #dato0 col7
     print("[Hex] "+ str(string))
-    return render_template('index.html',
-                            getdb=getdb,
-                            )
+    return render_template('index.html',getdb=getdb)
 
 @app.route('/c1off')
 def c1off():

@@ -3,16 +3,22 @@
 constructorstring = 0 #[peso0]
 constructordb = 1 #[peso0]
 production = 0 #[peso0]
+items = 10 #[peso0] Routesauto
 
 from flask import Flask
-
 app = Flask(__name__) #peso1
+
+
 
 from routes import * #[peso2] Archivo de rutas Maestro
 from constructors.constructor_db import * #[peso2] 
 from constructors.constructor_strings import * #[peso2] 
 #from services.serialservice import * #[peso2] Archivo init serials
-#from constructors.makerservice import * #[peso2] Archivo init makers
+from services.makerservice import * #[peso2]
+
+CreaActionRutesFile(items,"auto/AutoActionRoutes.py") #[peso1]
+
+
 
 
 #Code ISOLATED
