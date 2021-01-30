@@ -4,39 +4,41 @@ import os #para crear el salto de linea
 #############################    funciones file makers  ########################################
 #para una estructura de 50 registros
 
-def creandocircuitos(num,uri):
+def CreaConstructorCircuitos(num,uri):
 
-    file = open(uri, "w") #limpiando archivo
-    file.write("" + os.linesep)
+    file = open(uri, "w") #crea archivo
     file.close()  #limpiando archivo
 
-    contentimports = "from django.db import models"
-    contentimports2 = "from django.utils.timezone import now"
-    contentline0 = "class Dbchar"
-    contentline1 = "(models.Model):"
-    contentline2 = "name = models.CharField(max_length=50)"
-    contentline3 = "vocation= models.CharField(max_length=50)"
-    contentline4 = "level= models.CharField(max_length=50)"
-    contentline5 = "lastlog= models.CharField(max_length=50)"
-    contentline6 = "created_at= models.DateTimeField(auto_now_add=True)"
+    import0 = "#//[This is an Autofile by GMAN]"
+    import1 = "from main import constructordb"
+    import2 = "from services.dbservice import * #Peso=1"
 
-    file = open(uri, "a")
-    file.write("" +  contentimports + "" + os.linesep)
-    file.write("" +  contentimports2 + "" + os.linesep)
-    file.write("\n")
+    p0 = "if constructordb == 1:"
+    p1 = "  dbg = Maindb() #Peso=2:"
+    p2 = "  dbg.borrartabla('circuitos')"
+    p3 = "  dbg.creartabla('circuitos')"
+    
+    file = open(uri, "a") #append
+    
+    file.write("" +  import0 + "" + os.linesep)
+    file.write("" +  import1 + "" + '\n')
+    file.write("" +  import2 + "" + os.linesep)
+    
+    file.write("" +  p0 + "" + os.linesep)
+    file.write("" +  p1 + "" + os.linesep)
+    file.write("" +  p2 + "" + '\n')
+    file.write("" +  p3 + "" + os.linesep)
 
     for x in range(num):
-
-        file.write("" +  contentline0 + "" + str(x))
-        file.write("" +  contentline1 + "" + os.linesep)
-        file.write("" + "\t"+  contentline2 + "" + os.linesep)
-        file.write("" + "\t"+ contentline3 + "" + os.linesep)
-        file.write("" + "\t"+ contentline4 + "" + os.linesep)
-        file.write("" + "\t"+ contentline5 + "" + os.linesep)
-        file.write("" + "\t"+ contentline6 + "" + os.linesep)
+        
+        file.write("  dbg.insertnewdata('circuitos','c"+ str(x)+ "','0','stringonG','stringoffG')")
         file.write("\n")
 
-    file.close()
+    file.write(os.linesep)
+    file.write("  dbg.desco()")
+
+
+
 
 
 def CreaActionRutesFile(num,uri):
