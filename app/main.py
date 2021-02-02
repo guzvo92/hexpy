@@ -8,6 +8,7 @@ items = 20#[peso0] Routesauto
 from flask import Flask
 app = Flask(__name__) #peso1
 
+from services.telnetservice import *
 from services.makerservice import * #[peso2]
 CreaActionRutesFile(items,"auto/AutoActionRoutes.py") #[peso3]
 CreaConstructorCircuitos(items,"auto/AutoConstructorCirc.py") #[peso3]
