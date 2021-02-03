@@ -65,8 +65,8 @@ class lutronmaster:
 		print("[Sys]-> Conexion terminada ")
 
 
+'''
 import time 
-
 test = lutronmaster("192.168.10.11","auvit","1234")
 test.conexion()
 test.send("#OUTPUT,288,1,0")
@@ -74,3 +74,5 @@ time.sleep(2)
 test.send("#OUTPUT,288,1,1")
 time.sleep(2)
 test.endconexion()
+'''
+

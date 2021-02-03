@@ -28,12 +28,13 @@ class Maindb:
         v5 ="estado int(255),"
         v6 ="urlon varchar(255),"
         v7 ="urloff varchar(255),"
-        v8 ="valon varchar(255),"
-        v9 ="valoff varchar(255),"
-        v10 ="stringon varchar(255),"
-        v11 ="stringoff varchar(255)"
-        v12 = " )"
-        value = v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11+v12
+        v8 ="urlstring varchar(255),"
+        v9 ="valon varchar(255),"
+        v10 ="valoff varchar(255),"
+        v11 ="stringon varchar(255),"
+        v12 ="stringoff varchar(255)"
+        v13 = " )"
+        value = v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11+v12+v13
         print (value)
         self.cursor.execute(value)
         self.conexion.commit()
@@ -50,15 +51,17 @@ class Maindb:
         v9 = "','"
         v10= "/"+str(circuito)+"off"
         v11 = "','"
-        v12 = str(circuito)+" On"
+        v12= "/changestrings"+str(circuito)
         v13 = "','"
-        v14= str(circuito)+" Off"
+        v14 = str(circuito)+" On"
         v15 = "','"
-        v16= str(stringon)
+        v16= str(circuito)+" Off"
         v17 = "','"
-        v18= str(stringoff)
-        v19 = "')"
-        value = v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11+v12+v13+v14+v15+v16+v17+v18+v19
+        v18= str(stringon)
+        v19 = "','"
+        v20= str(stringoff)
+        v21 = "')"
+        value = v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11+v12+v13+v14+v15+v16+v17+v18+v19+v20+v21
         print (value)
         self.cursor.execute(value)
         self.conexion.commit()

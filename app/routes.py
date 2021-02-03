@@ -2,9 +2,10 @@ from flask import render_template,redirect,url_for,request
 from services.dbservice import * #Peso=1
 
 #//Loading Routes
-from routese.AdminStringRoutes import *
+#from routese.AdminStringRoutes import *
 #from routese.IndexActionRoutes import *
 from auto.AutoActionRoutes import *
+from auto.AutoAdminRoutes import *
 
 #//Loading Auto Routes
 

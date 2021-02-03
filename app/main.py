@@ -1,17 +1,20 @@
 #Volumento main.py
 
 constructorstring = 0 #[peso0]
-constructordb = 1 #[peso0]
+
 production = 0 #[peso0]
-items = 20#[peso0] Routesauto
+items = 20#[peso0] Routesauto 
+constructordb = 0 #[peso0.1]depende de items
 
 from flask import Flask
 app = Flask(__name__) #peso1
 
 from services.telnetservice import *
 from services.makerservice import * #[peso2]
-CreaActionRutesFile(items,"auto/AutoActionRoutes.py") #[peso3]
-CreaConstructorCircuitos(items,"auto/AutoConstructorCirc.py") #[peso3]
+CreaActionRoutesFile(items,"auto/AutoActionRoutes.py") #[peso3]
+CreaConstructorCircuitosFile(items,"auto/AutoConstructorCirc.py") #[peso3]
+CreaAdminRoutesFile(items,"auto/AutoAdminRoutes.py") #[peso3]CreaConstructorCircuitosFile(items,"auto/AutoConstructorCirc.py") #[peso3]
+
 
 from routes import * #[peso2] Archivo de rutas Maestro
 from auto.AutoConstructorCirc import * #[peso2] 

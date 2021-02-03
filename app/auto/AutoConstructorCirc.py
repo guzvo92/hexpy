@@ -5,7 +5,6 @@ if constructordb == 1:
   dbg = Maindb() #Peso=2:
   dbg.borrartabla('circuitos')
   dbg.creartabla('circuitos')
-  dbg.insertnewdata('circuitos','c0','0','stringonG','stringoffG')
   dbg.insertnewdata('circuitos','c1','0','stringonG','stringoffG')
   dbg.insertnewdata('circuitos','c2','0','stringonG','stringoffG')
   dbg.insertnewdata('circuitos','c3','0','stringonG','stringoffG')
@@ -25,5 +24,6 @@ if constructordb == 1:
   dbg.insertnewdata('circuitos','c17','0','stringonG','stringoffG')
   dbg.insertnewdata('circuitos','c18','0','stringonG','stringoffG')
   dbg.insertnewdata('circuitos','c19','0','stringonG','stringoffG')
+  dbg.insertnewdata('circuitos','c20','0','stringonG','stringoffG')
 
   dbg.desco()
