@@ -1,0 +1,29 @@
+<div class="ml-auto mr-auto circuito">
+          <div class="boxOn boxge1">
+              <form action="{{getdb[loop.index-1][3]}}" method="GET">
+                  <input class="btn btn-outline-primary btn-sm" 
+                        style="
+                          {% if getdb[loop.index-1][2] == 1 %}
+                         background-color:#42f548
+                         {% else %}
+                         background-color:none
+                         {% endif %}"
+                         "
+                         type="button" onclick="submit()" value="{{getdb [loop.index-1] [6]}}">
+              </form>
+          </div><!---end boxOn -->
+
+          <div class="boxOff boxge1">
+              <form action="{{getdb[loop.index-1][4]}}" method="GET">
+                  <input class="btn btn-outline-primary btn-sm" 
+                        style="
+                         {% if getdb[loop.index-1][2] == 0 %}
+                         background-color:#42f548
+                         {% else %} 
+                         background-color:none
+                         {% endif %}"
+                         type="button" onclick="submit()" value="{{getdb [loop.index-1] [7]}}">
+              </form>
+          </div><!---end boxOff -->
+
+</div><!---end circuito -->

@@ -6,10 +6,12 @@
 
   </style>
 
-  <link rel="stylesheet" href="{{ url_for('static',filename='stylesg.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='stylesg.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css')}}">
+
   <body>
 
-      <h1> Alfa version </h1>
+      <h1> {{valueG |safe}} </h1>
 
 
       {#
@@ -17,7 +19,7 @@
       #}
 
       {% include 'compo/indexcontrols.html' %}
-      <div class="e30"></div>
+      
 
 
 

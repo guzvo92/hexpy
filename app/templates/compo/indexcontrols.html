@@ -1,42 +1,83 @@
+<style>
+  .boxg{height:60px; width:180px}
+  .boxge1{display: inline-block; padding: 10px 10px 10px 10px}
+  .red{border:2px solid red;}
+  .blue{border: 2px solid blue;}
+</style>
 
 
-<div class="e30"></div>
+<div class="container-fluid">
+  <div class="row">
 
-
+  
 {% for x in getdb %}
 
-<div class="boxg">
-    <div class="boxge1">
-        <form action="{{getdb[loop.index-1][3]}}" method="GET">
-            <input style="
-                    {% if getdb[loop.index-1][2] == 1 %}
-                   background-color:#42f548
-                   {% else %}
-                   background-color:none
-                   {% endif %}"
-                   "
-                   type="button" onclick="submit()" value="{{getdb [loop.index-1] [6]}}">
-        </form>
-    </div>
+      {#--------------   seccion 1 ----------------#}
+    
+      {% if (loop.index/5) == 0.2 %}
+        <div class="col-2">
+      {% endif %}
 
-    <div class="boxge1">
-        <form action="{{getdb[loop.index-1][4]}}" method="GET">
-            <input style="
-                   {% if getdb[loop.index-1][2] == 0 %}
-                   background-color:#42f548
-                   {% else %} 
-                   background-color:none
-                   {% endif %}"
-                   type="button" onclick="submit()" value="{{getdb [loop.index-1] [7]}}">
-        </form>
+      {% if (loop.index/5) <= 1 %} 
+      <div class="row">
+        {% include 'compo/0templatecircuito.html' %}
+        </div>
+      {% endif %}
 
-    </div>
+      {% if (loop.index/5) == 1 %}
+        </div>
+      {% endif %}
 
-    <div>
-        
-    </div>
-</div>
+      {#--------------   seccion 2 ----------------#}
 
-<div class="e20"></div>
+      {% if (loop.index/5) == 1.2 %}
+        <div class="col-2">
+      {% endif %}
+
+      {% if (loop.index/5) <= 2 and (loop.index/5) > 1 %} 
+      <div class="row">
+        {% include 'compo/0templatecircuito.html' %}
+      </div>
+      {% endif %}
+
+      {% if (loop.index/5) == 2 %}
+        </div>
+      {% endif %}
+
+      {#--------------   seccion 3 ----------------#}
+
+      {% if (loop.index/5) == 2.2 %}
+        <div class="col-2">
+      {% endif %}
+
+      {% if (loop.index/5) <= 3 and (loop.index/5) > 2 %} 
+      <div class="row">
+        {% include 'compo/0templatecircuito.html' %}
+      </div>
+      {% endif %}
+
+      {% if (loop.index/5) == 3 %}
+        </div>
+      {% endif %}
+
+      {#--------------   seccion 4 ----------------#}
+
+      {% if (loop.index/5) == 3.2 %}
+        <div class="col-2">
+      {% endif %}
+
+      {% if (loop.index/5) <= 4 and (loop.index/5) > 3 %} 
+      <div class="row">
+        {% include 'compo/0templatecircuito.html' %}
+      </div>
+      {% endif %}
+
+      {% if (loop.index/5) == 4 %}
+        </div>
+      {% endif %}
 
 {% endfor%}
+
+  </div>
+   
+</div><!--endcontainer-->

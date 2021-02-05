@@ -22,10 +22,11 @@ def home():
 
 @app.route('/')
 def index():
+    valueG1 = "Alfa Version"
     dbg = Maindb()
     getdb = dbg.readall()
     return render_template('index.html',
-                            getdb=getdb,
+                            getdb=getdb,valueG=valueG1
                             )
 
 @app.route('/admin')

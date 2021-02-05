@@ -1,0 +1,43 @@
+<style>
+  .boxg{height:60px; width:180px}
+  .boxge1{display: inline-block; padding: 10px 10px 10px 10px}
+  .red{border:2px solid red;}
+</style>
+
+
+<div class="container-fluid">
+  <div class="row">
+
+  
+{% for x in getdb %}
+    
+      {% if (loop.index/5) == 0.2 %}
+        <div class="row">
+      {% endif %}
+
+      {% if (loop.index/5) <= 1 %} 
+        <div class="col-2 red"> hextech {{ (loop.index) }} </div>
+      {% endif %}
+
+      {% if (loop.index/5) == 1 %}
+        </div>
+      {% endif %}
+
+      {% if (loop.index/5) == 1.2 %}
+        <div class="row">
+      {% endif %}
+
+      {% if (loop.index/5) <= 2 and (loop.index/5) > 1 %} 
+        <div class="col-2 red"> hextech {{ (loop.index) }} </div>
+      {% endif %}
+
+      {% if (loop.index/5) == 2 %}
+        </div>
+      {% endif %}
+        
+   
+
+
+
+
+{% endfor%}
