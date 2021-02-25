@@ -1,7 +1,7 @@
 #//[This is an Autofile by GMAN]
 from flask import render_template,redirect,url_for,request
-from services.dbservice import * #Peso=1
-from main import app
+from services.dbservice import * #Peso=1
+from main import app
 dbg = Maindb() #Peso=2
 @app.route('/changestringsc1', methods = ['POST'])
 def changestringsc1():

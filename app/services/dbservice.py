@@ -120,12 +120,19 @@ class Maindb:
         self.cursor.execute(value)
         self.conexion.commit()
 
-    def readall(self):
+    def readallcircuitos(self):
         self.cursor.execute("SELECT * FROM circuitos")
         self.circuitos = self.cursor.fetchall()
         #print(self.circuitos)
         self.conexion.commit()
         return self.circuitos
+
+    def readallmaindata(self):
+        self.cursor.execute("SELECT * FROM admin")
+        self.admindb = self.cursor.fetchall()
+        #print(self.circuitos)
+        self.conexion.commit()
+        return self.admindb
 
 
 

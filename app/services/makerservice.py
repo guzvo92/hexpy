@@ -46,18 +46,18 @@ def CreaAdminRoutesFile(num,uri):
     import0 = "#//[This is an Autofile by GMAN]"
     import1 = "from flask import render_template,redirect,url_for,request"
     import2 = "from services.dbservice import * #Peso=1"
+    import3 = "from main import app"
+    import4 = "dbg = Maindb() #Peso=2"
 
-    p0 = "from main import app"
-    p1 = "dbg = Maindb() #Peso=2"
     
     file = open(uri, "a") #append
     
     file.write("" +  import0 + "" + os.linesep)
     file.write("" +  import1 + "" + '\n')
-    file.write("" +  import2 + "" + os.linesep)
-    
-    file.write("" +  p0 + "" + os.linesep)
-    file.write("" +  p1 + "" + os.linesep)
+    file.write("" +  import2 + ""  + '\n')
+    file.write("" +  import3 + "" + '\n')
+    file.write("" +  import4 + "" + os.linesep)
+
     
     for x in range(num):
 
@@ -88,7 +88,21 @@ def CreaActionRoutesFile(num,uri):
     import3 = "from services.telnetservice import * #Peso=1"
     import4 = "import time"
     import5 = "from main import app"
-    p0 = "dbg = Maindb() #Peso=2"
+    import6 = "from main import constructorconexiontelnet"
+    import7 = "dbg = Maindb() #Peso=2"
+
+    p0 = "def conexiontelnet(argstring):"
+    p1 = "  if constructorconexiontelnet == 1:"
+    p2 = "      try:"
+    p3 = "          print('Conexion activa')"
+    p4 = "          test = lutronmaster('192.168.10.11','auvit','1234')"
+    p5 = "          test.conexion()"
+    p6 = "          test.send(argstring)"
+    p7 = "          test.endconexion()"
+    p8 = "      except:"
+    p9 = "          print('Error en la conexion')"
+    p10 = "  else: "
+    p11 = "     print('Conexion desactivada') "
    
     
     file = open(uri, "a") #append
@@ -96,11 +110,25 @@ def CreaActionRoutesFile(num,uri):
     file.write("" +  import0 + "" + os.linesep)
     file.write("" +  import1 + "" + '\n')
     file.write("" +  import2 + "" + '\n')
-    file.write("" +  import3 + "" + os.linesep)
-    file.write("" +  import4 + "" + os.linesep)
-    file.write("" +  import5 + "" + os.linesep)
-    file.write("" +  p0 + "" + os.linesep)
-    file.write("\n")
+    file.write("" +  import3 + "" + '\n')
+    file.write("" +  import4 + "" + '\n')
+    file.write("" +  import5 + "" + '\n')
+    file.write("" +  import6 + "" + os.linesep)
+    file.write("" +  import7 + "" + os.linesep)
+
+    file.write("" +  p0 + ""  + '\n')
+    file.write("" +  p1 + "" + '\n')
+    file.write("" +  p2 + "" + '\n')
+    file.write("" +  p3 + "" + '\n')
+    file.write("" +  p4 + "" + '\n')
+    file.write("" +  p5 + "" + '\n')
+    file.write("" +  p6 + "" + '\n')
+    file.write("" +  p7 + "" + '\n')
+    file.write("" +  p8 + "" + '\n')
+    file.write("" +  p9 + "" + '\n')
+    file.write("" +  p10 + "" + '\n')
+    file.write("" +  p11 + "" + os.linesep)
+
 
     for x in range(num):
 
@@ -109,14 +137,11 @@ def CreaActionRoutesFile(num,uri):
             file.write("def c"+ str(x+1) + "on():"+ '\n')
             file.write("    DBG = Maindb()"+ '\n')
             file.write("    DBG.updateval('c" +str(x+1)+ "','1')"+ '\n')
-            file.write("    GETDBG = DBG.readall()"+ '\n')
+            file.write("    GETDBG = DBG.readallcircuitos()"+ '\n')
             file.write("    string = GETDBG["+ str(x) +"]"+ "[8] #//i"+str(x)+"C7" '\n')
             file.write("    print('[HEX] '+ str(string))" + '\n')
-            file.write("    test = lutronmaster('192.168.10.11','auvit','1234')" + '\n')
-            file.write("    test.conexion()" + '\n')
             file.write("    stringon = GETDBG["+ str(x) +"][8] #//i0C8" + '\n')
-            file.write("    test.send(stringon)" + '\n')
-            file.write("    test.endconexion()" + '\n')
+            file.write("    conexiontelnet(stringon)" + '\n')
             file.write("    return render_template('index.html',getdb=GETDBG)")
 
             file.write(os.linesep)
@@ -126,13 +151,11 @@ def CreaActionRoutesFile(num,uri):
             file.write("def c"+ str(x+1) + "off():"+ '\n')
             file.write("    DBG = Maindb()"+ '\n')
             file.write("    DBG.updateval('c" +str(x+1)+ "','0')"+ '\n')
-            file.write("    GETDBG = DBG.readall()"+ '\n')
+            file.write("    GETDBG = DBG.readallcircuitos()"+ '\n')
             file.write("    string = GETDBG["+ str(x) +"]"+ "[9] #//i"+str(x)+"C7" '\n')
             file.write("    print('[HEX] '+ str(string))" + '\n')
-            file.write("    test = lutronmaster('192.168.10.11','auvit','1234')" + '\n')
-            file.write("    test.conexion()" + '\n')
             file.write("    stringoff = GETDBG["+ str(x) +"][9] #//i0C8" + '\n')
-            file.write("    test.send(stringoff)" + '\n')
+            file.write("    conexiontelnet(stringoff)" + '\n')
             file.write("    return render_template('index.html',getdb=GETDBG)" + '\n')
             
             file.write("\n")

@@ -7,6 +7,16 @@
   .space_adm{width:10px;}
 </style>
 
+
+  <div class="row">
+    <h4 class="ml-2 mr-2">IP: </h4> <input class="ipinput" type="text" value="{{admingbg[0][1]}}">  
+    <h4 class="ml-2 mr-2" >User: </h4>  <input class="ipinput" type="text" value="{{admingbg[0][2]}}">
+    <h4 class="ml-2 mr-2" >User: </h4>  <input class="ipinput" type="text" value="{{admingbg[0][3]}}"> 
+    <h4 class="ml-2 mr-2" >User: </h4>  <input class="ipinput" type="text" value="{{admingbg[0][4]}}"> 
+  </div>
+  <div class="row">
+
+
 {% for x in getdb %}
 
 <div class="boxg_adm">
@@ -33,9 +43,6 @@
 
           <button type:="submit"> Save </button>
         </form>
-
-        
-
         
     </div>
 

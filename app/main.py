@@ -1,7 +1,7 @@
 #Volumento main.py
 
 constructorstring = 0 #[peso0]
-
+constructorconexiontelnet = 0 #[peso0]
 production = 0 #[peso0]
 items = 20#[peso0] Routesauto 
 constructordb = 0 #[peso0.1]depende de items
@@ -13,8 +13,7 @@ from services.telnetservice import *
 from services.makerservice import * #[peso2]
 CreaActionRoutesFile(items,"auto/AutoActionRoutes.py") #[peso3]
 CreaConstructorCircuitosFile(items,"auto/AutoConstructorCirc.py") #[peso3]
-CreaAdminRoutesFile(items,"auto/AutoAdminRoutes.py") #[peso3]CreaConstructorCircuitosFile(items,"auto/AutoConstructorCirc.py") #[peso3]
-
+CreaAdminRoutesFile(items,"auto/AutoAdminRoutes.py") #[peso3]
 
 from routes import * #[peso2] Archivo de rutas Maestro
 from auto.AutoConstructorCirc import * #[peso2] 

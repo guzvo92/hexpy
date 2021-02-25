@@ -22,17 +22,18 @@ def home():
 
 @app.route('/')
 def index():
-    valueG1 = "Alfa Version"
+    valueG1 = "Main"
     dbg = Maindb()
-    getdb = dbg.readall()
+    getdb = dbg.readallcircuitos()
+    admindb = dbg.readallmaindata()
     return render_template('index.html',
-                            getdb=getdb,valueG=valueG1
+                            getdb=getdb,valueG=valueG1,admingbg=admindb
                             )
 
 @app.route('/admin')
 def admin():
     dbg = Maindb()
-    getdb = dbg.readall()
+    getdb = dbg.readallcircuitos()
     return render_template('admin.html',
                             getdb=getdb,
                             )
